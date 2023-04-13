@@ -1,0 +1,64 @@
+#!/bin/bash
+# NIDO script
+
+newFileName=$(date "+Agenda_%d_%m_%Y.md"); # sets the filename var
+
+echo "<p>&nbsp;</p>" >> $newFileName;
+echo >> $newFileName;
+echo "# Agenda: $(date '+%d_%m_%Y') 👍" >> $newFileName;
+echo "<p>&nbsp;</p>" >> $newFileName;
+echo >> $newFileName;
+echo "## ***Hello Everyone!***" >> $newFileName;
+echo "<p>&nbsp;</p>" >> $newFileName;
+
+# adds a Quote of the Day! Hurray hurray!
+curl 'https://quotes.rest/qod?language=en' | jq '.contents.quotes[0].quote' >> $newFileName;
+echo "<p>&nbsp;</p>" >> $newFileName;
+curl 'https://quotes.rest/qod?language=en' | jq '.contents.quotes[0].author' >> $newFileName;
+echo "<p>&nbsp;</p>" >> $newFileName;
+
+echo >> $newFileName;
+echo "## **Today** 📆" >> $newFileName;
+echo >> $newFileName;
+
+echo "1. Item 1" >> $newFileName;
+echo "2. Item 2" >> $newFileName;
+echo "3. Item 3" >> $newFileName;
+echo "4. Item 4" >> $newFileName;
+echo "5. Item 5" >> $newFileName;
+echo "<p>&nbsp;</p>" >> $newFileName;
+echo "<p>&nbsp;</p>" >> $newFileName;
+echo >> $newFileName;
+
+echo "# ☕ BREAK 0:00am - 0:00am 🍩" >> $newFileName;
+echo "<p>&nbsp;</p>" >> $newFileName;
+echo "<p>&nbsp;</p>" >> $newFileName;
+echo >> $newFileName;
+
+echo "## **Wrapping-up** 🎁" >> $newFileName;
+echo >> $newFileName;
+echo "- What did we do today?" >> $newFileName;
+echo "- What was new?" >> $newFileName;
+echo "- What was clear?" >> $newFileName;
+echo "- What is unclear?" >> $newFileName;
+echo "<p>&nbsp;</p>" >> $newFileName;
+echo >> $newFileName;
+
+echo "## **Tomorrow** ⌛" >> $newFileName;
+echo >> $newFileName;
+echo "- We are going to?" >> $newFileName;
+echo "- Please review todays code." >> $newFileName;
+echo "<p>&nbsp;</p>" >> $newFileName;
+echo >> $newFileName;
+
+echo "## ***May the **code** be with you.*** 🤖" >> $newFileName;
+echo "<p>&nbsp;</p>" >> $newFileName;
+echo "<p>&nbsp;</p>" >> $newFileName;
+echo >> $newFileName;
+
+code $newFileName
+
+if [ $# -eq 1 ]
+then
+code ~/NIDO/markdown_syntax_help.txt
+fi

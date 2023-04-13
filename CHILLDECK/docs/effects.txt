@@ -1,0 +1,3 @@
+drop warp (records)
+blue dissolve (backgrounds)
+-1000 degrees per minute for rotation

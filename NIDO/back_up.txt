@@ -1,0 +1,18 @@
+
+
+# cp Agenda_Template.md  $newFileName;
+newFileName=$(date "+Agenda_%m_%d_%Y.md"); # sets the filename var
+
+cp Agenda_Template.md  $newFileName;
+# tr -s '\n' < file.txt
+day=$(date "+%d");
+month=$(date "+%m");
+year=$(date "+%Y");
+tr 'DD' $day > $newFileName;
+#tr 'MM' $month >> $newFileName;
+#tr 'YYYY' $year >> $newFileName;
+
+///////////////////////////
+// did not work 😦
+# response=$(curl -X GET "https://quotes.rest/qod?language=en" -H "accept: application/json");
+# curl -s 'https://quotes.rest/qod?language=en' | python3 -c "import sys, json; print(json.load(sys.stdin)['contents']['quotes']['quote'])";
